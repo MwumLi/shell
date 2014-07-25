@@ -20,6 +20,58 @@
 
 	$ ls -ltr
 
+### 显示当前目录所有文件大小
+单位为k  
+
+	$ ls -s 
+可以显示更为人性化的单位效果  
+
+	$ ls -sh
+
+### 排序  
+#### 省略常规，按照文件在目录中自然存储顺序依次列出  
+
+	$ ls -U
+	$ ls --sort=none
+#### 按照文件扩展名进行排序  
+
+	$ ls -X
+	$ ls --sort=extension  
+#### 显示文件大小，并按照文件大小进行排序  
+文件越大越靠前  
+
+	$ ls -S
+	$ ls --sort=size
+
+#### 按照文件最近修改时间排序  
+最新修改的在前  
+
+	$ ls -t 
+	$ ls --sort=time  
+#### 按照文件节点修改时间排序  
+文件节点变化，即文件创建  
+
+	$ ls -c 
+	$ ls -ltc	//按照创建时间排序 ，并显示创建时间  
+显示创建时间，但按照名字排序  
+	
+	$ ls -lc
+
+### 显示文件指定的时间  
+#### 显示atime
+
+	$ ls -l --time=atime
+	$ ls -l --time=access
+	$ ls -l --time=use
+#### 显示信息节点状态改变时间  
+
+	$ ls -l --time=ctime  
+	$ ls -l --time=status
+	$ ls -lc 
+
+#### 显示最近修改时间  
+
+	$ ls -lt  
 ### 以行的格式输出文件列表
 
 	$ ls -1
@@ -80,7 +132,12 @@
 使用`cat -n`和`cat -b`给查看的文件添加行号  
 `-b`选项去除了空行  
 可以使用`wc -l`来验证`cat -n`的正确性  
-
+### 展示非打印字符  
+`cat -T`	  
+	show TAB characters as `^I`  
+`cat -v`  
+	show nonprinting , use ^ and M- notation, except for LFD and TAB  
+`cat -t` == `cat -vT`
 ### less和more
 ### head和tail
 #### head查看文件前n行内容  

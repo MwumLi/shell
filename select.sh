@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-#! /bin/bash
 select i in mon tue wed 
 do
 	case $i in

@@ -33,6 +33,28 @@ Bash Shell中利用`let`, `(())`和`[]`执行基本的算数操作
 ### expr命令
 
 		$ result=`expr 3 + 4`
+expr命令不仅可以用于执行整数运算,还可以用于一些字符操作   
+#### 计算字符串长度 
+
+	$ expr length "woain"
+	5
+#### 提取指定长度的字串  
+命令格式：`expr substr str pos length`  
+- str: 母串  
+- pos：子串开始位置，从1开始  
+- length: 子串长度  
+
+	$ expr substr "woainililuo" 2 4
+	oain
+#### 获取字符串中首次出现某个字符的位置  
+命令格式：`eexpr index str charat`  
+- str: 查找字符串  
+- charat:关键字符  
+
+	$ expr index "woaoain" o
+	2  
+
+
 以上这些方法仅仅用于整数运算,不支持浮点数  
 
 ### bc工具
