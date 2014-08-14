@@ -46,6 +46,14 @@ ed Hat、CentOS 或 Fedora 系统，你可以这样做：
 在 Gentoo 上:
 
 	sudo emerge -av dev-python/pygments 
+安装pygments:   
+
+	sudo apt-get install python-pygments  
+生成pygments里面的高亮css文件: pygmentize -f html -S default > pygments.css  
+把生成的pygments.css移到你的css文件夹里，在post模板里引用一下  
+修改配置文件_config.xml,添加 highlighter: pygments    
+使用时代码包含在{% highlight language%}和{% endhighlight %}之间    
+参数language可以从http://pygments.org/docs/lexers/获得    
 
 ## 使用
 一个获取最简单 Jekyll 模板并生成静态页面的方法  
@@ -70,3 +78,11 @@ ed Hat、CentOS 或 Fedora 系统，你可以这样做：
 
 	$ jekyll serve --watch  
 
+## 错误  
+执行rails  server的时候报错：/var/lib/gems/1.9.1/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+ 
+	from /var/lib/gems/1.9.1/gems/execjs-1.4.0/lib/execjs.rb:5:in `<module:ExecJS>'
+	from /var/lib/gems/1.9.1/gems/execjs-1.4.0/lib/execjs.rb:4:in `<top (required)>'
+	from /var/lib/gems/1.9.1/gems/coffee-script-2.2.0/lib/coffee_script.rb:1:in `require'
+原因：没有js运行时环境
+解决办法：安装js运行时环境(sudo apt-get install nodejs  )
