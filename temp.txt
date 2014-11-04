@@ -1,3 +1,5 @@
+temp  
+
 [ -f "somefile" ] ：判断是否是一个文件
 
 [ -x "/bin/ls" ] ：判断/bin/ls是否存在并有可执行权限
